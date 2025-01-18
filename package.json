@@ -1,0 +1,25 @@
+{
+  "name": "url-opener",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for opening URLs in browser",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "start": "node build/index.js",
+    "dev": "ts-node-esm src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.1.1",
+    "open": "^9.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "volta": {
+    "node": "22.12.0",
+    "npm": "10.9.0"
+  }
+}

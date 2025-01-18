@@ -1,0 +1,68 @@
+# 依存関係ディレクトリ
+node_modules/
+vendor/
+
+# ビルド成果物
+dist/
+build/
+*.log
+
+# VS Code設定
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDE設定
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# macOSシステムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# macOSフォルダメタデータ
+Icon?
+.Spotlight-V100
+.Trashes
+
+# Windowsシステムファイル
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Node.js関連
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+package-lock.json
+yarn.lock
+
+# テンポラリファイル
+*.swp
+*.swo
+*~
+
+# ログファイル
+logs/
+*.log
+
+# キャッシュディレクトリ
+.cache/
+.temp/
+
+docs/
