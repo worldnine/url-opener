@@ -4,6 +4,32 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import open from "open";
 
+/**
+ * Validates if the given string is a valid URL
+ * @param url The URL to validate
+ * @returns true if valid, false otherwise
+ */
+function isValidUrl(url: string): boolean {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Normalizes the URL by adding https:// if no scheme is present
+ * @param url The URL to normalize
+ * @returns The normalized URL
+ */
+function normalizeUrl(url: string): string {
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    return `https://${url}`;
+  }
+  return url;
+}
+
 // Create server instance
 const server = new Server(
   {
@@ -22,7 +48,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
       name: "open_url",
-      description: "Opens a URL in the default browser",
+      description: "Opens a URL in the default browser. If no scheme (http:// or https://) is provided, https:// will be used.",
       inputSchema: {
         type: "object",
         properties: {
@@ -48,13 +74,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     throw new Error("URL is required and must be a string");
   }
 
+  const normalizedUrl = normalizeUrl(args.url);
+  
+  if (!isValidUrl(normalizedUrl)) {
+    throw new Error(`Invalid URL format: ${args.url}`);
+  }
+
   try {
-    await open(args.url);
+    await open(normalizedUrl);
     return {
       content: [
         {
           type: "text",
-          text: `Successfully opened URL: ${args.url}`,
+          text: `Successfully opened URL: ${normalizedUrl}`,
         },
       ],
     };
