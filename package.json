@@ -4,10 +4,13 @@
   "description": "URL opener project",
   "main": "build/index.js",
   "type": "module",
+  "bin": {
+    "url-opener": "./build/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node build/index.js",
-    "dev": "ts-node src/index.ts",
+    "dev": "node --import './loader.mjs' src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -18,5 +21,9 @@
     "typescript": "^5.3.3",
     "ts-node": "^10.9.2",
     "@types/node": "^20.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/url-opener.git"
   }
 }
