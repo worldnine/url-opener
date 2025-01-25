@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "start": "node build/index.js",
     "dev": "node --import './loader.mjs' src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
