@@ -3,6 +3,7 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import open from "open";
+import { URL } from 'url';
 
 /**
  * Validates if the given string is a valid URL
@@ -19,15 +20,39 @@ function isValidUrl(url: string): boolean {
 }
 
 /**
- * Normalizes the URL by adding https:// if no scheme is present
- * @param url The URL to normalize
+ * Validates and normalizes the URL
+ * @param url The URL to validate and normalize
  * @returns The normalized URL
+ * @throws Error if the URL is invalid or potentially dangerous
  */
 function normalizeUrl(url: string): string {
-  if (!url.startsWith('http://') && !url.startsWith('https://')) {
-    return `https://${url}`;
+  try {
+    // Basic validation
+    if (!url) {
+      throw new Error('URL cannot be empty');
+    }
+
+    // Add https:// if no scheme is present
+    const normalizedUrl = (!url.startsWith('http://') && !url.startsWith('https://'))
+      ? `https://${url}`
+      : url;
+
+    // Validate URL format
+    const urlObject = new URL(normalizedUrl);
+
+    // Security checks
+    const blockedProtocols = ['file:', 'ftp:', 'data:'];
+    if (blockedProtocols.includes(urlObject.protocol)) {
+      throw new Error(`Protocol ${urlObject.protocol} is not allowed`);
+    }
+
+    return normalizedUrl;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Invalid URL: ${error.message}`);
+    }
+    throw error;
   }
-  return url;
 }
 
 // Create server instance
