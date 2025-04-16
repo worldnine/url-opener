@@ -1,6 +1,6 @@
 {
   "name": "@world9/url-opener",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple and cross-platform MCP server for opening URLs in the default browser. Focused on simplicity.",
   "main": "build/index.js",
   "type": "module",
@@ -10,6 +10,9 @@
     "start": "node build/index.js",
     "dev": "node --import './loader.mjs' src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "url-opener": "./build/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.1.1",
