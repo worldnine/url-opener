@@ -1,5 +1,5 @@
 {
-  "name": "url-opener",
+  "name": "@world9/url-opener",
   "version": "0.1.0",
   "description": "A simple and cross-platform MCP server for opening URLs in the default browser. Focused on simplicity.",
   "main": "build/index.js",
@@ -26,5 +26,19 @@
   },
   "author": "Tomotaka Nagata <nagata@infosign.co.jp>",
   "license": "MIT",
-  "homepage": "https://github.com/worldnine/url-opener#readme"
+  "homepage": "https://github.com/worldnine/url-opener#readme",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "server",
+    "url",
+    "browser",
+    "opener",
+    "cross-platform",
+    "claude",
+    "desktop",
+    "tool",
+    "stdio",
+    "typescript"
+  ]
 }
