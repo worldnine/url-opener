@@ -1,0 +1,8 @@
+src/
+docs/
+.github/
+tsconfig.json
+*.prompt.md
+loader.mjs
+*.log
+*.test.*

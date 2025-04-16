@@ -1,12 +1,9 @@
 {
   "name": "url-opener",
   "version": "0.1.0",
-  "description": "URL opener project",
+  "description": "A simple and cross-platform MCP server for opening URLs in the default browser. Focused on simplicity.",
   "main": "build/index.js",
   "type": "module",
-  "bin": {
-    "url-opener": "./build/index.js"
-  },
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -26,5 +23,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yourusername/url-opener.git"
-  }
+  },
+  "author": "Tomotaka Nagata <nagata@infosign.co.jp>",
+  "license": "MIT"
 }
