@@ -22,8 +22,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/url-opener.git"
+    "url": "git+https://github.com/worldnine/url-opener.git"
   },
   "author": "Tomotaka Nagata <nagata@infosign.co.jp>",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/worldnine/url-opener#readme"
 }

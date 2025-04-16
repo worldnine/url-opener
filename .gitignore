@@ -71,3 +71,4 @@ docs/
 
 # LLM関連
 .github/
+.vscode/
