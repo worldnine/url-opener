@@ -1,6 +1,6 @@
 {
   "name": "@world9/url-opener",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple and cross-platform MCP server for opening URLs in the default browser. Focused on simplicity.",
   "main": "build/index.js",
   "type": "module",

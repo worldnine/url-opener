@@ -26,11 +26,9 @@ You can check the URLs handled by other MCP servers in the browser.
 
 That's all! 
 
-## Setup
+## Usage with MCP Clients
 
-### Usage with Claude Desktop
-
-Add the following to your `claude_desktop_config.json`:
+To use this server with any MCP-compatible client, add the following configuration to your client settings:
 
 ```json
 {
@@ -38,15 +36,18 @@ Add the following to your `claude_desktop_config.json`:
     "url-opener": {
       "command": "npx",
       "args": [
-        "-y",
-        "github:worldnine/url-opener"
+        "@world9/url-opener"
       ]
     }
   }
 }
 ```
 
-This is all you need to use it.
+This allows your MCP client to launch the URL Opener server using npx. The server will communicate over standard input/output (stdio) as required by the MCP protocol.
+
+> Note: The configuration key ("url-opener") can be changed as needed by your client. The important part is the command and args.
+
+## Setup
 
 If you want to install it manually, you can do the following.
 
